@@ -1,19 +1,30 @@
 import 'react-native-gesture-handler';
-
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import Login from './screens/Login';
+import Register from './screens/Register';
+import Chats from './screens/Chats';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+//this variable gives settings to any Stack that uses it, such as color, text color, etc.
+const generaloptions = {
+  headerStyle:{ backgroundColor:"darkblue"},
+  headerTitleStyle:{ color:"white"},
+};
 
 export default function App() {
   return (
     <NavigationContainer>
-    <View style={styles.container}>
-      <Text>Open fdfdftart working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <Stack.Navigator screenOptions={generaloptions}>
+        <Stack.Screen name='Login' component={Login} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
