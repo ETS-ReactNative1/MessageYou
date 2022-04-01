@@ -11,15 +11,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 //this variable gives settings to any Stack that uses it, such as color, text color, etc.
-const generaloptions = {
-  headerStyle:{ backgroundColor:"darkblue"},
-  headerTitleStyle:{ color:"white"},
-};
+
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={generaloptions}>
+      <Stack.Navigator screenOptions={{
+        headerStyle:{ backgroundColor:"darkblue"},
+        headerTitleStyle:{ color:"white"}
+      }}>
+
         <Stack.Screen name='Login' component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
