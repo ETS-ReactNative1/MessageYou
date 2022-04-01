@@ -11,10 +11,14 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
+  const signIn = ()=>{
+
+  }
   
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
-      
+    <View style={styles.loginContainer}>
+
+      {/*StatusBar is the bar with the power, wifi, etc icons on top*/}
       <StatusBar style="light" />
       <Image source={logo}
       style={{width:145, height:145}} />
@@ -29,8 +33,13 @@ const Login = () => {
         secureTextEntry //Makes that the password shows in hidden black dots
         value={password} onChangeText={(password) => setPassword(password)}/>
       </View>
-      <Button containerStyle={styles.button} title="Login"/>
-      <Button containerStyle={styles.button} title="Register" type="outline"/>
+
+      {/*Buttons for the Login & Register functions*/}
+      
+      <Button containerStyle={styles.button} title="Login" onPress={signIn}/>
+      <Button containerStyle={styles.button} title="Register" type="outline"/> 
+      {/*Register doesn't execute a function, it simply sends to the "register" page*/}
+      
 
     </View>
   )
@@ -39,8 +48,19 @@ const Login = () => {
 export default Login
 
 const styles = StyleSheet.create({
+  loginContainer:{
+    flex: 1, 
+    backgroundColor: '#1C2833',
+    alignItems: 'center',
+    justifyContent:'center',
+    padding:10,
+  },
   inputStyle:{
-
+    width:300,
+  },
+  button:{
+    width:222,
+    marginTop:11,
   }
  
 })
