@@ -2,11 +2,13 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react'
-import Login from './screens/Login';
-import Register from './screens/Register';
-import Chats from './screens/Chats';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import RegisterScreen from './screens/RegisterScreen';
+import LoginScreen from './screens/LoginScreen';
+import Chats from './screens/ChatScreen';
+
 
 {/*To use Stacks, we first must create a variable of it*/}
 const Stack = createStackNavigator();
@@ -25,7 +27,8 @@ export default function App() {
 
         {/*Here we define the screen that we want the app to show at the start. 
         In this case, that's the Login screen*/}
-        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Login' component={LoginScreen} />
+        <Stack.Screen name='Register' component={RegisterScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>

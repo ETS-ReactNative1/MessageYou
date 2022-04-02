@@ -6,8 +6,8 @@ import {useState} from "react";
 
 var logo = require ('../assets/logo.png');
 
-
-const Login = () => {
+{/**/}
+const LoginScreen = ({navigate}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -37,15 +37,14 @@ const Login = () => {
       {/*Buttons for the Login & Register functions*/}
       
       <Button containerStyle={styles.button} title="Login" onPress={signIn}/>
-      <Button containerStyle={styles.button} title="Register" type="outline"/> 
-      {/*Register doesn't execute a function, it simply sends to the "register" page*/}
-      
+      <Button containerStyle={styles.button} title="Register" type="outline" onPress={()=>navigation.navigate("Register")}/> 
+      {/*https://reactnavigation.org/docs/navigating/*/}  
 
     </View>
   )
 }
 
-export default Login
+export default LoginScreen
 
 const styles = StyleSheet.create({
   loginContainer:{
