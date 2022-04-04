@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar'
-import { Button, Input, Image} from "react-native-elements";
-import LoginScreen from './LoginScreen';
+import { Button, Input} from "react-native-elements";
 import { auth } from '../firebase';
 
 const RegisterScreen = ({navigation}) => {
@@ -11,14 +10,15 @@ const RegisterScreen = ({navigation}) => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
 
+
   const register =()=>{
     auth.createUserWithEmailAndPassword(email,password)
     .then((authUser) => {
-      authUser.user.update({
+      authUser.user.updateProfile({
         displayName: username,
       });
     })
-    .catch((error)=>alert(error.message));
+    .catch((error)=>alert("Please verify that each field is correct"));
   };
 
   //What useLayoutEffect does is it executes right before the screen loads

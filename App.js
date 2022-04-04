@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
-import Chats from './screens/ChatScreen';
+import ChatScreen from './screens/ChatScreen';
 
 
 {/*To use Stacks, we first must create a variable of it*/}
@@ -16,8 +16,8 @@ const Stack = createStackNavigator();
 //this variable gives settings to any Stack that uses it, such as color, text color, etc.
 const stackOptions = {
 	headerTitleStyle: { alignSelf: 'center' },
-  headerStyle:{ backgroundColor:"#17202A"},
-  headerTitleStyle:{ color:"white"},
+  headerStyle:{ backgroundColor:"lightblue"},
+  headerTitleStyle:{ color:"black"},
 };
 
 export default function App({navigation}) {
@@ -30,6 +30,7 @@ export default function App({navigation}) {
         In this case, that's the Login screen*/}
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
+        <Stack.Screen name='ChatScreen' component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, Input, Image} from "react-native-elements";
 import { StatusBar } from 'expo-status-bar'; //https://docs.expo.dev/versions/latest/sdk/status-bar/
+import { auth } from '../firebase';
 
 var logo = require ('../assets/logo.png');
 
@@ -10,9 +11,24 @@ const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  const signIn = ()=>{
+  useEffect( () =>{
+    //Executed when the authentication state updates
+    const unsuscribe = auth.onAuthStateChanged((authUser)=>{ 
+      if (authUser){ //If the user is authenticated, then we replace the stack with the Chats Screen. 
+                    //The reason of "Replacing" is because once someone is logged in. we don't wanna 
+                    //show them the Login/Register screens again
+        navigation.replace("ChatScreen");
+      }
+    });
+    //Execute the function
+    return unsuscribe;
+  },[])
 
-  }
+
+  const signIn = ()=>{
+    auth.signInWithEmailAndPassword(email, password)
+    .catch((error) => alert("Your Email or Password is Incorrect"));
+  };
   
   return (
     <View style={styles.loginContainer}>
@@ -53,7 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1C2833',
     alignItems: 'center',
     justifyContent:'center',
-    padding:10,
   },
   inputStyle:{
     width:300,
@@ -63,7 +78,7 @@ const styles = StyleSheet.create({
   },
   button:{
     width:222,
-    marginTop:11,
+    marginTop:10,
   }
  
 })
