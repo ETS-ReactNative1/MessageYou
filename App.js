@@ -24,7 +24,8 @@ export default function App({navigation}) {
   return (
     <NavigationContainer>
       {/*This is simply the MENU on top of the application with the usual "back" or "next" buttons*/}
-      <Stack.Navigator screenOptions={stackOptions}>
+      <Stack.Navigator screenOptions={stackOptions}
+      initialRouteName="Chats">
 
         {/*Here we define the screen that we want the app to show at the start. 
         In this case, that's the Login screen*/}
