@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import ChatScreen from './screens/ChatScreen';
+import CreateChatScreen from './screens/CreateChatScreen';
 
 
 {/*To use Stacks, we first must create a variable of it*/}
@@ -32,6 +33,8 @@ export default function App({navigation}) {
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
         <Stack.Screen name='ChatScreen' component={ChatScreen} />
+        <Stack.Screen name='CreateChat' component={CreateChatScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

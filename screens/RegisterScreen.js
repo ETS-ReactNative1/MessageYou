@@ -39,12 +39,12 @@ const RegisterScreen = ({navigation}) => {
         Create a MessageYou Account
       </Text>
 
-      <Input  style={styles.textStyle} //Username input
+      <Input style={styles.textStyle} //Username input
         placeholder='Username' type="username" 
         value={username} 
         onChangeText={(text) => setUsername(text)} 
       />
-      <Input  style={styles.textStyle}//Email input
+      <Input style={styles.textStyle}//Email input
         placeholder='Email' type="email" 
         value={email} 
         onChangeText={(text) => setEmail(text)} 
@@ -56,7 +56,7 @@ const RegisterScreen = ({navigation}) => {
         onChangeText={(text) => setPassword(text)} 
       />
       <Button containerStyle={styles.button} title="Register" type="solid" onPress={register}/> 
-      <Button containerStyle={styles.button} title="Return to Login" type="outline" onPress={()=>navigation.navigate('Login')}/> 
+      <Button containerStyle={styles.button} title="Return to Login" type="outline" onPress={()=>navigation.goBack()}/> 
 
     </View>
   )

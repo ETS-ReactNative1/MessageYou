@@ -7,7 +7,7 @@ import { ListItem } from 'react-native-elements' //https://reactnativeelements.c
 const ChatListItem = ({id, chatName, joinChat}) => {
 
   return (
-    <ListItem>
+    <ListItem key={id}>
       <ListItem.Content>
 
         <ListItem.Title style={{fontWeight:"700"}}>
@@ -15,7 +15,7 @@ const ChatListItem = ({id, chatName, joinChat}) => {
         </ListItem.Title>
 
         <ListItem.Subtitle numberOfLines={2}> 
-            
+            AAD
         </ListItem.Subtitle>
         
       </ListItem.Content>
