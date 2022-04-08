@@ -7,7 +7,8 @@ import { ListItem } from 'react-native-elements' //https://reactnativeelements.c
 const ChatListItem = ({id, chatName, joinChat}) => {
 
   return (
-    <ListItem key={id}>
+    <ListItem key={id} bottomDivider
+    onPress={()=> joinChat(id, chatName)}>
       <ListItem.Content>
 
         <ListItem.Title style={{fontWeight:"700"}}>

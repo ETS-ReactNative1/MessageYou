@@ -7,8 +7,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
-import ChatScreen from './screens/ChatScreen';
+import ChatHomeScreen from './screens/ChatHomeScreen';
 import CreateChatScreen from './screens/CreateChatScreen';
+import ChatScreen from './screens/ChatScreen';
+
 
 
 {/*To use Stacks, we first must create a variable of it*/}
@@ -29,11 +31,12 @@ export default function App({navigation}) {
       initialRouteName="Chats">
 
         {/*Here we define the screen that we want the app to show at the start. 
-        In this case, that's the Login screen*/}
+        In this case, that's the Login screen. Then, the other screens will be called from the Login accordingly*/}
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
-        <Stack.Screen name='ChatScreen' component={ChatScreen} />
+        <Stack.Screen name='ChatScreen' component={ChatHomeScreen} />
         <Stack.Screen name='CreateChat' component={CreateChatScreen} />
+        <Stack.Screen name='Chat' component={ChatScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>

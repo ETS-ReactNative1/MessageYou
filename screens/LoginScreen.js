@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useLayoutEffect} from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, Input, Image} from "react-native-elements";
 import { StatusBar } from 'expo-status-bar'; //https://docs.expo.dev/versions/latest/sdk/status-bar/
@@ -10,6 +10,12 @@ var logo = require ('../assets/logo.png');
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useLayoutEffect( ()=>{
+    navigation.setOptions({
+      headerShown:false,
+    })
+  },[navigation])
   
   useEffect( () =>{
     //Executed when the authentication state updates
