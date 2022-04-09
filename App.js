@@ -34,7 +34,7 @@ export default function App({navigation}) {
         In this case, that's the Login screen. Then, the other screens will be called from the Login accordingly*/}
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
-        <Stack.Screen name='ChatScreen' component={ChatHomeScreen} />
+        <Stack.Screen name='HomeScreen' component={ChatHomeScreen} />
         <Stack.Screen name='CreateChat' component={CreateChatScreen} />
         <Stack.Screen name='Chat' component={ChatScreen} />
 

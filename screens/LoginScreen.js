@@ -23,7 +23,7 @@ const LoginScreen = ({navigation}) => {
       if (authUser){ //If the user is authenticated, then we replace the stack with the Chats Screen. 
                     //The reason of "Replacing" is because once someone is logged in. we don't wanna 
                     //show them the Login/Register screens again
-        navigation.replace("ChatScreen");
+        navigation.replace("HomeScreen");
       }
     });
     //Execute the function

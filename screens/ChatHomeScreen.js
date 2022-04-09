@@ -4,13 +4,17 @@ import ChatListItem from '../components/ChatListItem';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Button} from "react-native-elements"
-import { db } from '../firebase';
+import { db , auth} from '../firebase';
 
 //SafeAreView makes so that objects aren't cut-off in the edges of the device
 //https://reactnative.dev/docs/scrollview
 const ChatHomeScreen = ({navigation}) => {
   const [chats,setChats] = useState([]);
 
+  const signOut = () => {
+		auth.signOut().then(() => navigation.replace("Login"));
+
+	};
   useEffect(()=>{
     const unsuscribe= db.collection('chats').onSnapshot((snapshot) =>
       setChats(
@@ -28,8 +32,8 @@ const ChatHomeScreen = ({navigation}) => {
       title:'MessageYou',
       headerRight:()=> (
           <TouchableOpacity>
-          <Button containerStyle={styles.button} title="Add Chat"
-          onPress={()=>navigation.navigate('CreateChat')}/> 
+          <Button containerStyle={styles.button} title="Sign Out"
+          onPress={signOut}/> 
           </TouchableOpacity>
       ),
     });
@@ -40,6 +44,7 @@ const ChatHomeScreen = ({navigation}) => {
     navigation.navigate("Chat", { id, chatName });
   }
 
+  //Displays all of the Chats from "ChatListItem" to the Home Screen, which are clickable   
   return (
     <SafeAreaView>  
       <ScrollView> 
