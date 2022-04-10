@@ -46,6 +46,7 @@ const ChatHomeScreen = ({navigation}) => {
 
   //Displays all of the Chats from "ChatListItem" to the Home Screen, which are clickable   
   return (
+    <View style={styles.viewContainer}>
     <SafeAreaView>  
       <ScrollView> 
         {chats.map(({id,data: {chatName}}) =>(
@@ -53,6 +54,16 @@ const ChatHomeScreen = ({navigation}) => {
         ))}
       </ScrollView>
     </SafeAreaView>
+
+    <TouchableOpacity // This is the ADD CHAT Button Bottom Right. It always stays there
+      containerStyle={styles.roundButton} 
+      title="Add Chat"
+      onPress={()=>navigation.navigate('CreateChat')}
+      >
+        <Text style={styles.addText}>NEW CHAT</Text>
+    </TouchableOpacity>
+
+  </View>
   )
 }
 
@@ -63,5 +74,25 @@ const styles = StyleSheet.create({
     width:100,
     alignContent:'center',
     alignItems:'center',
-  }
+  },
+  addText:{
+    color:'white',
+    fontSize:17,
+    fontWeight:'bold'
+  },
+  viewContainer:{
+    flex:1,
+  },
+  roundButton: {
+    position: "absolute",
+    bottom:85,
+    right: 20,
+    width:100,
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 1,
+    borderRadius:55,
+    backgroundColor: '#1E90FF',
+  },
 })

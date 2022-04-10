@@ -47,7 +47,7 @@ const LoginScreen = ({navigation}) => {
       <View style={styles.inputStyle}>
         <Input style={styles.textStyle}  //Input field for the email. 
         placeholder='Email' type="email" 
-        value={email} onChangeText={(text) => setEmail(text)} />
+        value={email} onChangeText={(text) => setEmail(text, text.trim())} />
 
         <Input style={styles.textStyle} //Input field for the password. 
         placeholder='Password' type="password" 
