@@ -4,6 +4,7 @@ import { Icon } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { auth, db } from '../firebase'
 import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
 const ChatScreen = ({navigation, route}) => {
 
@@ -13,21 +14,23 @@ const ChatScreen = ({navigation, route}) => {
   //to customize each header for each Chat uniquely. we can use LayourEffect from navigation to pass 
   // the unique id and make the headers unique
   useLayoutEffect(() => {
+    navigation.setOptions({ 
+      title:<Text>{route.params.chatName}</Text> //This is for the Header to display the Chat's Name
+    });
+  }, [navigation,messages])
+
+  useLayoutEffect(() => {
     const unsuscribe = db
     .collection('chats')
     .doc(route.params.id)
     .collection('messages')
-    .orderBy('createdAt','desc')
+    .orderBy('createdAt','asc')
     .onSnapshot((snapshot) => setMessages(
       snapshot.docs.map((doc) =>({
         id: doc.id,
         data: doc.data()
       }))
-    ))
-    navigation.setOptions({ 
-      title:<Text>{route.params.chatName}</Text> //This is for the Header to display the Chat's Name
-    });
-
+    ));
    return unsuscribe;
   }, [route])
 
@@ -42,18 +45,30 @@ const ChatScreen = ({navigation, route}) => {
     setInput("")
   };
 
-  const displayChats = ()=>{
-    
-  };
 
   return (
     <SafeAreaView style={styles.chatContainer}>
 
-      <ScrollView>
-        {messages}
+      <ScrollView contentContainerStyle={styles.chatContainerWithin}>
+      {messages.map(({id,data}) =>
+      data.email === auth.currentUser.email ?(
+        <View key={id}
+        style={styles.receiver}>
+          <Text>
+            {data.message}
+          </Text>
+        </View>
+
+      ):(<View key={id}
+        style={styles.sender}>
+        <Text>
+            {data.message}
+          </Text>
+      </View>))}
+
       </ScrollView>
 
-      <View style={styles.messageBox}>
+      <View key={id} style={styles.messageBox}>
         <TextInput 
         style={styles.textContainer} 
         placeholder='Message' 
@@ -76,7 +91,11 @@ const styles = StyleSheet.create({
   chatContainer:{
     flex:1,
     backgroundColor:'lightyellow'
-
+  },
+  chatContainerWithin:{
+    flex:1,
+    justifyContent: 'flex-end',
+    paddingTop:20,
   },
   messageBox:{
     padding:13,
@@ -95,4 +114,22 @@ const styles = StyleSheet.create({
     padding:10,
     backgroundColor:'lightblue'
   },
+  receiver:{
+    padding: 15,
+    alignSelf: "flex-end",
+    marginRight:14,
+    marginBottom:20,
+    position:'relative',
+    backgroundColor: "lightgreen",
+    borderRadius: 35,
+    
+  },
+  sender:{
+    padding: 15,
+		backgroundColor: "lightgreen",
+		alignSelf: "flex-start",
+		borderRadius: 20,
+		margin: 15,
+    borderRadius: 35,
+  }
 })

@@ -11,6 +11,18 @@ import { db , auth} from '../firebase';
 const ChatHomeScreen = ({navigation}) => {
   const [chats,setChats] = useState([]);
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title:'MessageYou',
+      headerRight:()=> (
+          <TouchableOpacity>
+          <Button containerStyle={styles.button} title="Sign Out"
+          onPress={signOut}/> 
+          </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
+
   const signOut = () => {
 		auth.signOut().then(() => navigation.replace("Login"));
 
@@ -26,18 +38,6 @@ const ChatHomeScreen = ({navigation}) => {
   )
   return unsuscribe;
 },[])
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      title:'MessageYou',
-      headerRight:()=> (
-          <TouchableOpacity>
-          <Button containerStyle={styles.button} title="Sign Out"
-          onPress={signOut}/> 
-          </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
 
   //joinChat makes it so the chats are clickable and you can enter the converstion
   const joinChat = (id, chatName) =>{
