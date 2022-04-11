@@ -3,7 +3,7 @@ import React, {useLayoutEffect, useState} from 'react'
 import { Icon } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { auth, db } from '../firebase'
-
+import firebase from 'firebase/compat/app';
 
 const ChatScreen = ({navigation, route}) => {
 
@@ -13,26 +13,44 @@ const ChatScreen = ({navigation, route}) => {
   //to customize each header for each Chat uniquely. we can use LayourEffect from navigation to pass 
   // the unique id and make the headers unique
   useLayoutEffect(() => {
-    navigation.setOptions({
-      title:<Text>{route.params.chatName}</Text> //route.params.chatName gets the chatName from the actual chat id
-    })
-  }, [])
+    const unsuscribe = db
+    .collection('chats')
+    .doc(route.params.id)
+    .collection('messages')
+    .orderBy('createdAt','desc')
+    .onSnapshot((snapshot) => setMessages(
+      snapshot.docs.map((doc) =>({
+        id: doc.id,
+        data: doc.data()
+      }))
+    ))
+    navigation.setOptions({ 
+      title:<Text>{route.params.chatName}</Text> //This is for the Header to display the Chat's Name
+    });
+
+   return unsuscribe;
+  }, [route])
 
   const sendMessage = ()=> { //We are getting the message and sending the info to the Firebase unique Chat
     db.collection('chats').doc(route.params.id) 
     .collection('messages').add({ 
       message:input,
       email: auth.currentUser.email,
-    })
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
 
-    setInput('')
+    setInput("")
+  };
+
+  const displayChats = ()=>{
+    
   };
 
   return (
     <SafeAreaView style={styles.chatContainer}>
 
       <ScrollView>
-        
+        {messages}
       </ScrollView>
 
       <View style={styles.messageBox}>
