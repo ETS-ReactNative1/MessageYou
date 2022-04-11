@@ -1,10 +1,19 @@
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput} from 'react-native'
+/* 
+Author: Dmytro Kavetskyy
+ChatScreen is the Unique screen for every chat, where unique messages will be displayed and
+there is a functionality to send messages in the bottom of the screen.
+*/
+
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, ImageBackground} from 'react-native';
 import React, {useLayoutEffect, useState} from 'react'
 import { Icon } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { auth, db } from '../firebase'
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import flowers from '../assets/background/flowers.png'; //https://pixabay.com/vectors/flowers-pattern-spring-green-4032775/
+import pink from '../assets/background/pink.jpg';
+import halloween from '../assets/background/halloween.jpg'; // https://pixabay.com/illustrations/halloween-ghost-pumpkin-bat-skull-5596921/
 
 const ChatScreen = ({navigation, route}) => {
 
@@ -45,67 +54,69 @@ const ChatScreen = ({navigation, route}) => {
     setInput("")
   };
 
-
   return (
+    <ImageBackground style={styles.backgroundImages} source={halloween}>
     <SafeAreaView style={styles.chatContainer}>
-
       <ScrollView contentContainerStyle={styles.chatContainerWithin}>
+     
+
       {messages.map(({id,data}) =>
       data.email === auth.currentUser.email ?(
-        <View key={id}
-        style={styles.receiver}>
-          <Text>
+        <View key={id} style={styles.receiver}>
+          <Text style={styles.messageText}>
             {data.message}
           </Text>
-        </View>
-
-      ):(<View key={id}
-        style={styles.sender}>
-        <Text>
+        </View>):
+        (<View key={id} style={styles.sender}>
+        <Text style={styles.messageText}>
             {data.message}
           </Text>
       </View>))}
 
       </ScrollView>
 
-      <View key={id} style={styles.messageBox}>
+      <View style={styles.messageBox}>
         <TextInput 
         style={styles.textContainer} 
         placeholder='Message' 
         value={input} 
-        onChangeText={(text)=>setInput(text)}/>
-
+        onSubmitEditing={sendMessage}
+        onChangeText={(text)=>setInput(text)}
+        />
         <TouchableOpacity onPress={sendMessage}> 
           {/*https://reactnativeelements.com/docs/1.2.0/icon*/}
           <Icon reverse name="sc-telegram" type='evilicon' color='#517fa4'/>
         </TouchableOpacity>
       </View>
-
+  
     </SafeAreaView>
+  </ImageBackground>
   )
 }
 
 export default ChatScreen
 
 const styles = StyleSheet.create({
+  backgroundImages: {
+    flex: 1,
+    height:"auto",
+    justifyContent: "center",
+    position:'relative'
+  },
   chatContainer:{
     flex:1,
-    backgroundColor:'lightyellow'
   },
   chatContainerWithin:{
-    flex:1,
-    justifyContent: 'flex-end',
-    paddingTop:20,
   },
   messageBox:{
-    padding:13,
+    padding:9,
     flexDirection:"row",
     backgroundColor:'white',
     marginBottom:1,
     alignItems:"center"
   },
   textContainer:{
-    bottom:0,
+    position:'relative',
     height:40,
     flex:1,
     marginRight:15,
@@ -115,21 +126,25 @@ const styles = StyleSheet.create({
     backgroundColor:'lightblue'
   },
   receiver:{
-    padding: 15,
+    padding: 14,
     alignSelf: "flex-end",
-    marginRight:14,
+    marginRight:15,
+    marginTop:15,
     marginBottom:20,
     position:'relative',
     backgroundColor: "lightgreen",
-    borderRadius: 35,
-    
+    borderRadius: 25,
   },
   sender:{
     padding: 15,
-		backgroundColor: "lightgreen",
+		backgroundColor: "cyan",
 		alignSelf: "flex-start",
 		borderRadius: 20,
 		margin: 15,
-    borderRadius: 35,
-  }
+    borderRadius: 25,
+  },
+  messageText:{
+    color:'black',
+    fontWeight:'bold'
+  },
 })

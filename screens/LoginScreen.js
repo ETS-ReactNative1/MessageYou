@@ -1,3 +1,9 @@
+/* 
+Author: Dmytro Kavetskyy
+ChatScreen is the Unique screen for every chat, where unique messages will be displayed and
+there is a functionality to send messages in the bottom of the screen.
+*/
+
 import React, { useEffect, useState , useLayoutEffect} from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, Input, Image} from "react-native-elements";

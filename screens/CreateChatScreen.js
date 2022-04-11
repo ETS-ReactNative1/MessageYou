@@ -1,3 +1,9 @@
+/* 
+Author: Dmytro Kavetskyy
+CreateChatScreen is the is the Screen where Logged IN Users can create new Chats, with the only 
+option to choose a Chat name
+*/
+
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from "react";
 import {Input, Button} from "react-native-elements"
