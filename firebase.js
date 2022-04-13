@@ -1,4 +1,8 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+/* 
+Author: Dmytro Kavetskyy
+This file will allow the application to use the unique apiKey to communicate with the Firebase account.
+The two important values are auth and db, which allow for authentication and dabatase storage
+*/
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';

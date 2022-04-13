@@ -1,3 +1,7 @@
+/* 
+Author: Dmytro Kavetskyy
+Register Screen where new users can register a new account with the username, email, and password.
+*/
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar'
@@ -10,7 +14,7 @@ const RegisterScreen = ({navigation}) => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
 
-
+  //We use the email + password to make an account and store it in Firebase.
   const register =()=>{
     auth.createUserWithEmailAndPassword(email,password)
     .then((authUser) => {
@@ -21,7 +25,8 @@ const RegisterScreen = ({navigation}) => {
     .catch((error)=>alert("Please verify that each field is correct"));
   };
 
-  //What useLayoutEffect does is it executes right before the screen loads
+  //to customize each header for each Chat uniquely. we can use LayourEffect from navigation to pass 
+  // the unique id and make the headers unique
   useLayoutEffect( ()=>{
     navigation.setOptions({
       // headerBackImageSource: {uri:'../assets/logo.png'},

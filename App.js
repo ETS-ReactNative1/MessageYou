@@ -13,25 +13,24 @@ import ChatScreen from './screens/ChatScreen';
 
 
 
-{/*To use Stacks, we first must create a variable of it*/}
+//To use Stacks, we first must create an array that will store all of the screens. and add || remove as needed
 const Stack = createStackNavigator();
 
-//this variable gives settings to any Stack that uses it, such as color, text color, etc.
+//this variable gives general settings to any Stack that wnats to use a Header, such as color, text color, etc.
 const stackOptions = {
 	headerTitleStyle: { alignSelf: 'center' },
   headerStyle:{ backgroundColor:"lightblue"},
   headerTitleStyle:{ color:"black"},
 };
 
-export default function App({navigation}) {
+export default function App({}) {
   return (
     <NavigationContainer>
       {/*This is simply the MENU on top of the application with the usual "back" or "next" buttons*/}
-      <Stack.Navigator screenOptions={stackOptions}
-      initialRouteName="Chats">
+      <Stack.Navigator screenOptions={stackOptions} initialRouteName="Chats">
 
         {/*Here we define the screen that we want the app to show at the start. 
-        In this case, that's the Login screen. Then, the other screens will be called from the Login accordingly*/}
+        In this case, that's the Login screen. Then, the other screens will be called accordingly*/}
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
         <Stack.Screen name='HomeScreen' component={ChatHomeScreen} />

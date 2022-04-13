@@ -1,9 +1,7 @@
 /* 
 Author: Dmytro Kavetskyy
-ChatScreen is the Unique screen for every chat, where unique messages will be displayed and
-there is a functionality to send messages in the bottom of the screen.
+LoginScreen will allow registered users to login with their email + password
 */
-
 import React, { useEffect, useState , useLayoutEffect} from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, Input, Image} from "react-native-elements";
@@ -12,11 +10,12 @@ import { auth } from '../firebase';
 
 var logo = require ('../assets/logo.png');
 
-{/**/}
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //to customize each header for each Chat uniquely. we can use LayourEffect from navigation to pass 
+  // the unique id and make the headers unique
   useLayoutEffect( ()=>{
     navigation.setOptions({
       headerShown:false,
@@ -24,19 +23,19 @@ const LoginScreen = ({navigation}) => {
   },[navigation])
   
   useEffect( () =>{
-    //Executed when the authentication state updates
+  //If the user is authenticated, then we replace the stack with the Chats Screen. 
+  //The reason of "Replacing" is because once someone is logged in. we don't wanna 
+  //show them the Login/Register screens again
     const unsuscribe = auth.onAuthStateChanged((authUser)=>{ 
-      if (authUser){ //If the user is authenticated, then we replace the stack with the Chats Screen. 
-                    //The reason of "Replacing" is because once someone is logged in. we don't wanna 
-                    //show them the Login/Register screens again
+      if (authUser){ 
         navigation.replace("HomeScreen");
       }
     });
-    //Execute the function
     return unsuscribe;
   },[])
 
-
+  //This is the most important function. It uses a firebase function to authenticate the user
+  //and will give an error message if one of the values is wrong.
   const signIn = ()=>{
     auth.signInWithEmailAndPassword(email, password)
     .catch((error) => alert("Your Email or Password is Incorrect"));

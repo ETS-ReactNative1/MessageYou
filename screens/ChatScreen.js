@@ -20,7 +20,7 @@ const ChatScreen = ({navigation, route}) => {
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState([])
 
-  //to customize each header for each Chat uniquely. we can use LayourEffect from navigation to pass 
+  //to customize each HEADER for each Chat uniquely. we can use LayourEffect from navigation to pass 
   // the unique id and make the headers unique
   useLayoutEffect(() => {
     navigation.setOptions({ 

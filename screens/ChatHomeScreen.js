@@ -1,3 +1,8 @@
+/* 
+Author: Dmytro Kavetskyy
+ChatHomeScreen is the General Screen that will display all of the created Chats. This Screen contains a SignOut Button, 
+a round button to create new Chats, and the ability to join chats by clicking on them.
+*/
 import { StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native'
 import React, {useEffect, useLayoutEffect, useState} from 'react'
 import ChatListItem from '../components/ChatListItem';
@@ -6,11 +11,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Button} from "react-native-elements"
 import { db , auth} from '../firebase';
 
-//SafeAreView makes so that objects aren't cut-off in the edges of the device
-//https://reactnative.dev/docs/scrollview
 const ChatHomeScreen = ({navigation}) => {
   const [chats,setChats] = useState([]);
 
+  //This is simply the header that stays fixed in every screen. Notice we pass the "navigation" at the end
   useLayoutEffect(() => {
     navigation.setOptions({
       title:'MessageYou',
@@ -23,6 +27,7 @@ const ChatHomeScreen = ({navigation}) => {
     });
   }, [navigation]);
 
+  //Simple Signout function in the top right
   const signOut = () => {
 		auth.signOut().then(() => navigation.replace("Login"));
 
@@ -39,16 +44,16 @@ const ChatHomeScreen = ({navigation}) => {
   return unsuscribe;
 },[])
 
-  //joinChat makes it so the chats are clickable and you can enter the converstion
+  //joinChat makes it so the chats are clickable and you can enter the unique Chat because of the unique id and chatName
   const joinChat = (id, chatName) =>{
     navigation.navigate("Chat", { id, chatName });
   }
-
-  //Displays all of the Chats from "ChatListItem" to the Home Screen, which are clickable   
   return (
+    //SafeAreView makes so that objects aren't cut-off in the edges of the device
+    //https://reactnative.dev/docs/scrollview
     <View style={styles.viewContainer}>
     <SafeAreaView>  
-      <ScrollView> 
+      <ScrollView> {/*Displays all of the Chats from "ChatListItem" to the Home Screen, which are clickable*/}   
         {chats.map(({id,data: {chatName}}) =>(
           <ChatListItem key={id} id={id} chatName={chatName} joinChat={joinChat}/>
         ))}
