@@ -22,12 +22,15 @@ The goal of this application was to keep it as simple as possible. However, ther
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Developer Usage](#developer operating instructions)
-- [Build & Deployment](#Build & Deployment)
-- [User Usage](#user Operating Instructions)
-- [Credits](#credits)
-- [License](#license)
+- [Installation]
+- [Developer Usage]
+- [Build & Deployment]
+- [User Operating instructions]
+- [Important Files]
+- [Features]
+- [Bug list]
+- [Credits & Acknowledgments]
+- [License & Copyright]
 
 ## Installation
 If you wish to build this application in your local machine, there are a certain steps to follow:
@@ -80,6 +83,10 @@ When that is completed, the developer might build the application as "web-build"
 ```
 $ expo build:web
 ```
+Then, the application will be ready for deployment, and the following firebase command can be used to deploy the application.
+```
+$ firebase deploy
+```
 
 ## User Operating instructions
 To operate the Application, the user must first Register an account through the Register page. 
@@ -94,7 +101,14 @@ Once an user joins a chat, they are able to write messages that will appear in t
 
 Messages from other users appear in the left side of the chat screen.
 
-## Credits && Sources
+## Important Files
+
+
+
+## Features
+
+
+## Credits & Acknowledgments
 https://reactnative.dev/docs/getting-started
 
 https://firebase.google.com/docs
@@ -108,9 +122,7 @@ You are free to clone, modify, and deploy the application as you wish.
 - No Attribution Required
 
 
-## Features
 
-If your project has a lot of features, list them here.
 
 
 
