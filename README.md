@@ -1,17 +1,20 @@
-# <Your-Project-Title>
+# MessageYouApp
+
+## Showcase
+<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/Chats.jpg" height="463" width="230" > <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/Login.jpg" height="463" width="230">
+<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/chatsHomeScreen.jpg" height="463" width="230" >
+<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/createChat.jpg" height="463" width="230">
+<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/Register.jpg" height="463" width="230">
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+MessageYou is a Real-Time Chat Application build with Javascript using React Native. Firebase was used for the authentication and storage of data of the application. 
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
+
 - What problem does it solve?
 - What did you learn?
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
