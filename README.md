@@ -23,7 +23,9 @@ The goal of this application was to keep it as simple as possible. However, ther
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
+- [Developer Usage](#developer operating instructions)
+- [Build & Deployment](#Build & Deployment)
+- [User Usage](#user Operating Instructions)
 - [Credits](#credits)
 - [License](#license)
 
@@ -43,7 +45,7 @@ Clone the application in your own local directory:
 ```
 $ git clone https://github.com/Dmytrocode/MessageYou.git
 ```
-Install the Navigation, Elements, and Gesture Gandler libraries
+Install the Navigation, Elements, and Gesture Handler libraries and dependencies:
 ```
 $ yarn add react-native-gesture-handler
 $ yarn add @react-navigation/native 
@@ -52,25 +54,52 @@ $ expo install react-native-reanimated react-native-screens react-native-safe-ar
 ```
 MORE INFORMATION: https://reactnavigation.org/docs/getting-started/
 
-
-After installing the libraries and dependencies, you are free to run the project using:
+## Developer Operating Instructions
+After installing the libraries and dependencies, you are free to run the project using yarn / npm start, depending how the app was setup:
 ```
 $ yarn start
 ```
-
-
+or
+```
+$ npm start
+```
 This application can be simulated in an Android Device. You can use Android Studio to setup virtual Android devices.
 https://developer.android.com/studio
-## Usage
+ 
+## Build & Deployment 
+Before building the application, it is a good idea to make sure that you are logged in the local [firebase-cli](https://firebase.google.com/docs/cli) using:
+```
+$ firebase login
+```
+Once the developer is logged in, feel free to initialize the Application with [Firebase Hosting](https://firebase.google.com/docs/hosting/quickstart) using:
+```
+$ firebase init
+```
+
+When that is completed, the developer might build the application as "web-build" using expo-cli:
+```
+$ expo build:web
+```
+
+## User Operating instructions
+To operate the Application, the user must first Register an account through the Register page. 
+
+After the user is authenticated through either the register or login page, they will be redirected to the Chats Home Page, where the chats will be displayed in the display. 
+
+At this point, the user might either join an existing chat, or create a new Chat using the bottom right round button. 
+
+To create a chat, the user must input a name for the chat, and then click the Submit button.
+
+Once an user joins a chat, they are able to write messages that will appear in the right side of the screen. 
+
+Messages from other users appear in the left side of the chat screen.
+
+## Credits && Sources
+https://reactnative.dev/docs/getting-started
+
+https://firebase.google.com/docs
 
 
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
 
 ## License
 
