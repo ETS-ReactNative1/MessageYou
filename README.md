@@ -4,15 +4,21 @@
 <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/Chats.jpg" height="463" width="230" > <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/Login.jpg" height="463" width="230">
 <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/chatsHomeScreen.jpg" height="463" width="230" >
 <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/createChat.jpg" height="463" width="230">
-<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/Register.jpg" height="463" width="230">
 
 ## Description
 
-MessageYou is a Real-Time Chat Application build with Javascript using React Native. Firebase was used for the authentication and storage of data of the application. 
-
+MessageYou is a Real-Time Chat Application build with Javascript using React Native. Users can Register and use their authenticated account to create chats and send messages to other authenticated users within the application. 
 
 - What problem does it solve?
 - What did you learn?
+
+## Technologies Used
+The goal of this application was to keep it as simple as possible. However, there are still a few technologies used that make the development much easier
+- React Native (Vanilla Javascript)
+- React Native Navigation
+- React Native Elements
+- React Native Gesture Handler
+- Firebase
 
 ## Table of Contents
 
@@ -22,18 +28,41 @@ MessageYou is a Real-Time Chat Application build with Javascript using React Nat
 - [License](#license)
 
 ## Installation
+If you wish to build this application in your local machine, there are a certain steps to follow:
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+ATTENTION: Before proceeding, make sure that your expo-cli and NPM/Yarn Package Manager is up to date. 
+I strongly suggest using YARN instead of NPM as I found multiple bugs and problems using npm to install packages and libraries.
 
+If you don't have expo-cli installed, Feel free to use:
+```
+$ yarn global add expo-cli
+```
+
+Clone the application in your own local directory:
+
+```
+$ git clone https://github.com/Dmytrocode/MessageYou.git
+```
+Install the Navigation, Elements, and Gesture Gandler libraries
+```
+$ yarn add react-native-gesture-handler
+$ yarn add @react-navigation/native 
+Dependencies:
+$ expo install react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+```
+MORE INFORMATION: https://reactnavigation.org/docs/getting-started/
+
+
+After installing the libraries and dependencies, you are free to run the project using:
+```
+$ yarn start
+```
+
+
+This application can be simulated in an Android Device. You can use Android Studio to setup virtual Android devices.
+https://developer.android.com/studio
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
 
 ## Credits
 
@@ -45,26 +74,15 @@ If you followed tutorials, include links to those here as well.
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+You are free to clone, modify, and deploy the application as you wish. 
+- Free for Commercial Use
+- No Attribution Required
 
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
 ## Features
 
 If your project has a lot of features, list them here.
 
-## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
-## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
