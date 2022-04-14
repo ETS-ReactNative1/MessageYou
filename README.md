@@ -47,11 +47,19 @@ If you don't have expo-cli installed, Feel free to use:
 $ yarn global add expo-cli
 ```
 
-Clone the application in your own local directory:
+Clone the application in your own local directory
 
 ```
 $ git clone https://github.com/Dmytrocode/MessageYou.git
 ```
+
+Install the dependencies setup in package.json:
+``` 
+$ yarn OR npm install
+```
+
+ALTERNATIVELY, you may install them individually:
+
 Install the Navigation, Elements, and Gesture Handler libraries and dependencies:
 ```
 $ yarn add react-native-gesture-handler
