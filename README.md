@@ -5,12 +5,15 @@
 <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/chatsHomeScreen.jpg" height="463" width="230" >
 <img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/createChat.jpg" height="463" width="230">
 
+The application is Live and can be used freely: https://messageyou-254ef.firebaseapp.com/
+
 ## Description
 
 MessageYou is a Real-Time Chat Application build with Javascript using React Native. Users can Register and use their authenticated account to create chats and send messages to other authenticated users within the application. 
 
-- What problem does it solve?
-- What did you learn?
+- This application is a good base to experiment and learn programming by adding new features and build on top of it.
+- There have been many news reports and investigations accusing the major messaging applications of reading and tracking people's messages. 
+- The goal of this application is to provide a medium where people can communicate with each other in a secure and private envinronment.
 
 ## Technologies Used
 The goal of this application was to keep it as simple as possible. However, there are still a few technologies used that make the development much easier
@@ -139,19 +142,21 @@ Although the Chat application is still in active development, there are certain 
 - The back button in a mobile device logs the user out of the application. The only way an user can SignOut should be through the "SignOut" Button.
 - Background is not styled properly. It resizes when the mobile keyboard is opened. It should stay fixed all through the usage of the Chat Screens.
 - The last message is not displayed in the Chats Home Screen below the Chat names. Instead, it says "AAD".
+- Users can create chats with blank names.
+- In the Login screen, an extra space at the end of the email gives an error. Spaces should be ignored by the Login system.
 
 ## Future Features
 - Add Avatars. Let users upload an avatar image during the Registration Screen and show it next to their messages in the Chats. 
 - Add a Message Removal Feature.
 - Allow users to see the UserName of other users by clicking in their messages.
 - Allow users to change the background with their choice of preselected images, or upload their own image.
+- Blacklist negative and innapropiate words from being able to used in the creation of chats.
 
 ## License and Copyright
-
+This application is not recommended to be distrubuted to the general public due to the early stage of development and lack of security features. Other than that,
 You are free to clone, modify, and deploy the application as you wish. 
 - Free for Commercial Use
 - No Attribution Required
-- 
 
 ## Credits and Acknowledgments
 https://reactnative.dev/docs/getting-started
