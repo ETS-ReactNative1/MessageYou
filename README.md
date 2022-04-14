@@ -101,6 +101,7 @@ Once an user joins a chat, they are able to write messages that will appear in t
 
 Messages from other users appear in the left side of the chat screen.
 
+
 ## Relevant Files
 There are 3 types of files that are the most significant in the application.
 
@@ -133,11 +134,17 @@ Although the Chat application is still in active development, there are certain 
 - Added different message colors to differenciate the Sender from the Receiver in the Chats Screen.
 - Added a ScrollView in the Chats Screen to scroll up/down through the message easily.
 
-
 ## Bug List
 - The ScrollView in the Chats section does not work completely right. The navigation header isn't fixed and moves with the scrollview section.
 - The back button in a mobile device logs the user out of the application. The only way an user can SignOut should be through the "SignOut" Button.
-- 
+- Background is not styled properly. It resizes when the mobile keyboard is opened. It should stay fixed all through the usage of the Chat Screens.
+- The last message is not displayed in the Chats Home Screen below the Chat names. Instead, it says "AAD".
+
+## Future Features
+- Add Avatars. Let users upload an avatar image during the Registration Screen and show it next to their messages in the Chats. 
+- Add a Message Removal Feature.
+- Allow users to see the UserName of other users by clicking in their messages.
+- Allow users to change the background with their choice of preselected images, or upload their own image.
 
 ## License and Copyright
 
