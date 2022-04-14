@@ -29,8 +29,8 @@ The goal of this application was to keep it as simple as possible. However, ther
 - [Relevant Files](#relevant-files)
 - [Features](#features)
 - [Bug list](#bug-list)
-- [Credits & Acknowledgments](#credits-and-acknowledgments)
 - [License & Copyright](#license-and-copyright)
+- [Credits & Acknowledgments](#credits-and-acknowledgments)
 
 ## Installation
 If you wish to build this application in your local machine, there are a certain steps to follow:
@@ -126,29 +126,41 @@ From the Login, the user first has to either Login or Register to be able to acc
 
 
 ## Features
+Although the Chat application is still in active development, there are certain features implemented that improve the navigation and user experience.
 
+- Sign Out Button: Instead of having to close the application and possibly delete the cache so the user isn't auto logged in, the Sign Out button allows to return to the Login Screen in a simple and quick way.
+- Implemented a Create Chats Button. Rather than create a separate screen where the user can select the option to create a new chat, a Create Chat remains in the Chats Home Screen fixed that the user can access anytime.
+- Added different message colors to differenciate the Sender from the Receiver in the Chats Screen.
+- Added a ScrollView in the Chats Screen to scroll up/down through the message easily.
 
 
 ## Bug List
-
-
-
-## Credits and Acknowledgments
-https://reactnative.dev/docs/getting-started
-
-https://firebase.google.com/docs
-
-
+- The ScrollView in the Chats section does not work completely right. The navigation header isn't fixed and moves with the scrollview section.
+- The back button in a mobile device logs the user out of the application. The only way an user can SignOut should be through the "SignOut" Button.
+- 
 
 ## License and Copyright
 
 You are free to clone, modify, and deploy the application as you wish. 
 - Free for Commercial Use
 - No Attribution Required
+- 
 
+## Credits and Acknowledgments
+https://reactnative.dev/docs/getting-started
 
+https://firebase.google.com/docs
 
+This application would have been not possible without the knowledge and documentation of various content creators and articles. Inspiration and guidance has been extracted from various sources: 
 
+- [notJust.dev](https://youtu.be/EvSUJ5lUcBw)
 
+- Credits to [Sonny Sangha](https://youtu.be/MJzmZ9qmdaE) for showing the configuration of Firebase and the scheme of the application.
+
+- [Esteban Codes](https://youtu.be/E81jfHan8MM)
+
+- [React Native Chat App Tutorial](https://getstream.io/chat/react-native-chat/tutorial/)
+
+- [How to Build a React Native Chat App for Android & iOS](https://www.cometchat.com/tutorials/build-react-native-chat-app-for-android-ios)
 
 
