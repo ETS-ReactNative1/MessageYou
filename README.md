@@ -22,15 +22,15 @@ The goal of this application was to keep it as simple as possible. However, ther
 
 ## Table of Contents
 
-- [Installation]
-- [Developer Usage]
-- [Build & Deployment]
-- [User Operating instructions]
-- [Important Files]
-- [Features]
-- [Bug list]
-- [Credits & Acknowledgments]
-- [License & Copyright]
+- [Installation](#installation)
+- [Developer Operating Instructions](#developer-operating-instructions)
+- [Build & Deployment](#build-and-deployment)
+- [User Operating instructions](#user-operating-instructions)
+- [Relevant Files](#relevant-files)
+- [Features](#features)
+- [Bug list](#bug-list)
+- [Credits & Acknowledgments](#credits-and-acknowledgments)
+- [License & Copyright](#license-and-copyright)
 
 ## Installation
 If you wish to build this application in your local machine, there are a certain steps to follow:
@@ -69,7 +69,7 @@ $ npm start
 This application can be simulated in an Android Device. You can use Android Studio to setup virtual Android devices.
 https://developer.android.com/studio
  
-## Build & Deployment 
+## Build and Deployment
 Before building the application, it is a good idea to make sure that you are logged in the local [firebase-cli](https://firebase.google.com/docs/cli) using:
 ```
 $ firebase login
@@ -88,7 +88,7 @@ Then, the application will be ready for deployment, and the following firebase c
 $ firebase deploy
 ```
 
-## User Operating instructions
+## User Operating Instructions
 To operate the Application, the user must first Register an account through the Register page. 
 
 After the user is authenticated through either the register or login page, they will be redirected to the Chats Home Page, where the chats will be displayed in the display. 
@@ -101,21 +101,46 @@ Once an user joins a chat, they are able to write messages that will appear in t
 
 Messages from other users appear in the left side of the chat screen.
 
-## Important Files
+## Relevant Files
+There are 3 types of files that are the most significant in the application.
 
+- [App.js](https://github.com/Dmytrocode/MessageYou/blob/master/App.js)
+
+App.js is where the application starts. A Stack Navigator is initalized with a few properties and can be used in any file that is linked in the App.js file.
+
+The App function returns a Navigator that contains multiple stacks that stack up on top of each other. 
+
+By default, App tries to access the "Chats" home screen. If the user isn't authenticated, then they will be redirected to the Login.js page.
+
+From the Login, the user first has to either Login or Register to be able to access the other Screens of the app.
+
+
+- Inside the Screens Folder, the user may find the screens that compose the application:
+
+[LoginScreen.js](https://github.com/Dmytrocode/MessageYou/blob/master/screens/LoginScreen.js) - [RegisterScreen.js](https://github.com/Dmytrocode/MessageYou/blob/master/screens/RegisterScreen.js) - [ChatHomeScreen.js](https://github.com/Dmytrocode/MessageYou/blob/master/screens/ChatHomeScreen.js) - [ChatScreen](https://github.com/Dmytrocode/MessageYou/blob/master/screens/ChatScreen.js) - [CreateChatScreen](https://github.com/Dmytrocode/MessageYou/blob/master/screens/CreateChatScreen.js)
+
+
+- Another important file is the ChatListItem.js, inside the components folder:
+
+[ChatListItem.js](https://github.com/Dmytrocode/MessageYou/tree/master/components/CreateChatScreen.js)
 
 
 ## Features
 
 
-## Credits & Acknowledgments
+
+## Bug List
+
+
+
+## Credits and Acknowledgments
 https://reactnative.dev/docs/getting-started
 
 https://firebase.google.com/docs
 
 
 
-## License
+## License and Copyright
 
 You are free to clone, modify, and deploy the application as you wish. 
 - Free for Commercial Use
