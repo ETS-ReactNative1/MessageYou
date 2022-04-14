@@ -33,6 +33,7 @@ The goal of this application was to keep it as simple as possible. However, ther
 - [Features](#features)
 - [Bug list](#bug-list)
 - [License & Copyright](#license-and-copyright)
+- [Contact and Support](#contact-and-support)
 - [Credits & Acknowledgments](#credits-and-acknowledgments)
 
 ## Installation
@@ -136,6 +137,9 @@ Although the Chat application is still in active development, there are certain 
 - Implemented a Create Chats Button. Rather than create a separate screen where the user can select the option to create a new chat, a Create Chat remains in the Chats Home Screen fixed that the user can access anytime.
 - Added different message colors to differenciate the Sender from the Receiver in the Chats Screen.
 - Added a ScrollView in the Chats Screen to scroll up/down through the message easily.
+- This application can be used in a web browser:
+<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/browser.PNG" height="500" width="530">
+
 
 ## Bug List
 - The ScrollView in the Chats section does not work completely right. The navigation header isn't fixed and moves with the scrollview section.
@@ -157,6 +161,9 @@ This application is not recommended to be distrubuted to the general public due 
 You are free to clone, modify, and deploy the application as you wish. 
 - Free for Commercial Use
 - No Attribution Required
+
+## Contact and Support 
+You are free to reach out to me with any issues, suggestions, or solutions for the MessageYou application at: dkm153@uregina.ca
 
 ## Credits and Acknowledgments
 https://reactnative.dev/docs/getting-started
