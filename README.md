@@ -138,7 +138,7 @@ Although the Chat application is still in active development, there are certain 
 - Added different message colors to differenciate the Sender from the Receiver in the Chats Screen.
 - Added a ScrollView in the Chats Screen to scroll up/down through the message easily.
 - This application can be used in a web browser:
-<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/browser.PNG" height="500" width="530">
+<img src="https://github.com/Dmytrocode/MessageYou/blob/master/content/browser.PNG" height="500" width="500">
 
 
 ## Bug List
